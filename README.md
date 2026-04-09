@@ -31,18 +31,8 @@ end)
 
 Section:NewButton("Fill Fuel", "Check", function() -- Buttton
     for key, v in pairs(workspace:WaitForChild("Items"):GetChildren()) do
-        if v.Name == "Log" 
-        or v.Name == "Coal" 
-        or v.Name == "Broken Fan" 
-        or v.Name == "Tyre" 
-        or v.Name == "Broken Microwave" 
-        or v.Name == "Bolt" 
-        or v.Name == "Old Radio" then
+        if v.Name == "Coal" then
             game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("RequestStartDraggingItem"):FireServer(v)
-            if v:FindFirstChild("Main") then
-                -- v.Main.CFrame = CFrame.new(0, 10, 0)
-                v.Main.CFrame = CFrame.new(20, 15, -5)
-            end
             if v:FindFirstChild("Coal") then
                 v.Coal.CFrame = CFrame.new(0, 15, 0)
             end
