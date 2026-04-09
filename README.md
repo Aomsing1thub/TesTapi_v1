@@ -19,20 +19,20 @@ Section:NewButton("Fill Fuel", "Check", function() -- Buttton
             game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("RequestStartDraggingItem"):FireServer(v)
             if v:FindFirstChild("Main") then
                 -- v.Main.CFrame = CFrame.new(0, 10, 0)
-                v.Main.CFrame = CFrame.new(20, 10, -5)
+                v.Main.CFrame = CFrame.new(20, 15, -5)
             end
             if v:FindFirstChild("Coal") then
-                v.Coal.CFrame = CFrame.new(0, 10, 0)
+                v.Coal.CFrame = CFrame.new(0, 15, 0)
             end
         elseif v.Name == "Fuel Canister" or v.Name == "Oil Barrel" or v.Name == "Morsel" then
             game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("RequestStartDraggingItem"):FireServer(v)
             if v:FindFirstChild("Main") then
-                v.Main.CFrame = CFrame.new(0, 10, 0)
+                v.Main.CFrame = CFrame.new(0, 15, 0)
             end
         elseif v.Name == "Basic Egg" then
             game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("RequestStartDraggingItem"):FireServer(v)
             if v:FindFirstChild("Main") then
-                v.Main.CFrame = CFrame.new(1, 10, 74)
+                v.Main.CFrame = CFrame.new(1, 15, 74)
             end
         end
     end
@@ -62,6 +62,18 @@ Section:NewButton("Bring Strong Flashlight", "Check", function() -- Buttton
     end
 end)
 
+Section:NewButton("Bring Impact Grenade", "Check", function() -- Buttton
+    for key, v in pairs(workspace:WaitForChild("Items"):GetChildren()) do
+        if v.Name == "Impact Grenade" then
+            game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("RequestStartDraggingItem"):FireServer(v)
+            if v:FindFirstChild("Main") then
+                v.Main.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-5)
+            end
+            game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("StopDraggingItem"):FireServer(v)
+        end
+    end
+end)
+
 Section:NewButton("Bring Weapon", "Check", function() -- Buttton
     for key, v in pairs(workspace:WaitForChild("Items"):GetChildren()) do
         if v.Name == "Strong Axe" or v.Name == "Revolver" or v.Name == "Revolver Ammo" or v.Name == "Rifle" or v.Name == "Rifle Ammo" then
@@ -72,10 +84,6 @@ Section:NewButton("Bring Weapon", "Check", function() -- Buttton
             game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("StopDraggingItem"):FireServer(v)
         end
     end
-end)
-
-Section:NewButton("Go to Camp Fire", "Check", function() -- Buttton
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 2, 10)
 end)
 
 Section:NewButton("Open all crate", "Check", function() -- Buttton
@@ -112,8 +120,8 @@ end
 end
 end)
 
-Section:NewKeybind("Go to Camp Fire", "KeybindInfo", Enum.KeyCode.Q, function() -- Key OPEN/CLOSE
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 2, 10)
+Section:NewKeybind("Go to Camp Fire", "KeybindInfo", Enum.KeyCode.Z, function() -- Key OPEN/CLOSE
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 5, 10)
 end)
 
 Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.RightControl, function() -- Key OPEN/CLOSE
