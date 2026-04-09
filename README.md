@@ -60,6 +60,18 @@ Section:NewButton("Fill Fuel", "Check", function() -- Buttton
     end
 end)
 
+Section:NewButton("Bring Armor", "Check", function() -- Buttton
+    for key, v in pairs(workspace:WaitForChild("Items"):GetChildren()) do
+        if v.Name == "Iron Body" then
+            game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("RequestStartDraggingItem"):FireServer(v)
+            if v:FindFirstChild("Main") then
+                v.Main.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-5)
+            end
+            game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("StopDraggingItem"):FireServer(v)
+        end
+    end
+end)
+
 Section:NewButton("Bring Bandage", "Check", function() -- Buttton
     for key, v in pairs(workspace:WaitForChild("Items"):GetChildren()) do
         if v.Name == "Bandage" or v.Name == "MedKit" then
@@ -176,11 +188,23 @@ spawn(function()
 while wait() do
 if a2 then
 pcall(function()
+    for key, v in pairs(workspace:WaitForChild("Items"):GetChildren()) do
+        if v.Name == "Strong Axe" then
+            game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("RequestHotbarItem"):InvokeServer(v)
+        end
+    end
+
     for i,v in pairs (game:GetService("Players").LocalPlayer.Inventory:GetChildren()) do
         if string.find(v.Name,"Axe") then
             Mytool = v
         end
     end
+
+    local args = {
+    "FireAllClients",
+    Mytool
+    }
+    game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("EquipItemHandle"):FireServer(unpack(args))
 
     for key, v in pairs(workspace.Map.Foliage:GetChildren()) do
         if v.Name == "Small Tree" and a2 then
