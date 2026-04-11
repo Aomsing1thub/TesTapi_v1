@@ -618,12 +618,33 @@ task.spawn(function()
 while wait() do
 if a1 then
 pcall(function()
-    if game.Players.LocalPlayer.Character.Humanoid.FloorMaterial ~= Enum.Material.Air and game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y > 28 then
+    if game.Players.LocalPlayer.Character.Humanoid.FloorMaterial ~= Enum.Material.Air and game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y > 30 and not stop then
         Save = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         wait(.5)
         if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
             game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ"):Destroy()
         end 
+    end
+end)
+end
+end
+end)
+
+task.spawn(function()
+while task.wait() do
+if a1 then
+pcall(function()
+    if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y <= 28 then
+        stop = true
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Save
+        if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
+            local Noclip = Instance.new("BodyVelocity")
+            Noclip.Name = "GGEZ"
+            Noclip.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+            Noclip.MaxForce = Vector3.new(100000,100000,100000)
+            Noclip.Velocity = Vector3.new(0,0,0)
+        end
+        stop = false
     end
 end)
 end
@@ -639,25 +660,6 @@ pcall(function()
         workspace.CurrentArena["Power Arena"].Arena.Piao.Cone:Destroy()
     end
     if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BallSocketConstraint") then
-        if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
-            local Noclip = Instance.new("BodyVelocity")
-            Noclip.Name = "GGEZ"
-            Noclip.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
-            Noclip.MaxForce = Vector3.new(100000,100000,100000)
-            Noclip.Velocity = Vector3.new(0,0,0)
-        end
-    end
-end)
-end
-end
-end)
-
-task.spawn(function()
-while task.wait() do
-if a1 then
-pcall(function()
-    if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y <= 28 then
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Save
         if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
             local Noclip = Instance.new("BodyVelocity")
             Noclip.Name = "GGEZ"
