@@ -618,7 +618,7 @@ task.spawn(function()
 while wait() do
 if a1 then
 pcall(function()
-    if game.Players.LocalPlayer.Character.Humanoid.FloorMaterial ~= Enum.Material.Air then
+    if game.Players.LocalPlayer.Character.Humanoid.FloorMaterial ~= Enum.Material.Air and game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y >= 35 then
         Save = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         wait(.5)
         if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
@@ -630,11 +630,13 @@ end
 end
 end)
 
+-- Middle -3.509385347366333, 27.93985939025879, 24.57699966430664
+
 task.spawn(function()
 while task.wait() do
 if a1 then
 pcall(function()
-    if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y <= 35 then
+    if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y <= 35 or game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BallSocketConstraint") then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Save
         if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
             local Noclip = Instance.new("BodyVelocity")
