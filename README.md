@@ -633,7 +633,7 @@ while task.wait() do
 if a1 then
 pcall(function()
     if game.Players.LocalPlayer.Character.Humanoid.FloorMaterial == "Air" and game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y <= 30 then
-        Save = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Save
         if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
             local Noclip = Instance.new("BodyVelocity")
             Noclip.Name = "GGEZ"
