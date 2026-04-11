@@ -608,7 +608,9 @@ end)
 Section:NewToggle("Toggle", false, function(state)
     a1 = state
     if not a1 then
-
+        if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
+            game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ"):Destroy()
+        end 
     end
 end)
 
@@ -632,7 +634,7 @@ task.spawn(function()
 while task.wait() do
 if a1 then
 pcall(function()
-    if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y <= 60 then
+    if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y <= 35 then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Save
         if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
             local Noclip = Instance.new("BodyVelocity")
