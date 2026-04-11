@@ -767,6 +767,7 @@ Section:NewToggle("Toggle", false, function(state)
 end)
 
 Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
+    print(#selectedOptions)
     game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Direita.Visible = false
     if #selectedOptions == 1 then
         firesignal(game:GetService("Players").LocalPlayer.PlayerGui.Tranformar.Characters[selectedOptions[1]].Transform.MouseButton1Click)
@@ -780,7 +781,7 @@ Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
             cloned.Position = target.Position - UDim2.new(0.731, 0, 0, 0)
             cloned.TextLabel.Name = selectedOptions[2]
         end
-        
+
         if game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("TrolarBotao2") then
             target = game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes["TrolarBotao2"]
 
