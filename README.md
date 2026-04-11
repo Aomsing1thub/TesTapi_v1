@@ -774,6 +774,12 @@ end)
 Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
     game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Direita.Visible = false
     if #selectedOptions == 1 then
+        if game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("2_1") then
+            game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("2_1"):Destroy()
+        end
+        if game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("2_2") then
+            game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("2_2"):Destroy()
+        end
         firesignal(game:GetService("Players").LocalPlayer.PlayerGui.Tranformar.Characters[selectedOptions[1]].Transform.MouseButton1Click)
     elseif #selectedOptions == 2 then
         target = game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes["TrolarBotão"]
