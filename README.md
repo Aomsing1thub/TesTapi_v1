@@ -748,63 +748,6 @@ for key, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Tranformar.
     end
 end
 
-local playerGui = game:GetService("Players").LocalPlayer.PlayerGui
-local transformCharacters = playerGui.Tranformar.Characters
-local powersFrame = playerGui.Botoes.Poderes
-
-local function fireTransformButton(characterName)
-    local characterFrame = transformCharacters:FindFirstChild(characterName)
-    if characterFrame and characterFrame:FindFirstChild("Transform") then
-        firesignal(characterFrame.Transform.MouseButton1Click)
-        return true
-    end
-
-    return false
-end
-
-local function destroyCopiedPowerButtons()
-    local copiedButtonOne = powersFrame:FindFirstChild("2_1")
-    if copiedButtonOne then
-        copiedButtonOne:Destroy()
-    end
-
-    local copiedButtonTwo = powersFrame:FindFirstChild("2_2")
-    if copiedButtonTwo then
-        copiedButtonTwo:Destroy()
-    end
-end
-
-local function clonePowerButton(sourceNames, cloneName, labelText)
-    local sourceButton
-
-    if type(sourceNames) == "table" then
-        for _, sourceName in ipairs(sourceNames) do
-            sourceButton = powersFrame:FindFirstChild(sourceName)
-            if sourceButton then
-                break
-            end
-        end
-    else
-        sourceButton = powersFrame:FindFirstChild(sourceNames)
-    end
-
-    if not sourceButton then
-        return nil
-    end
-
-    local clonedButton = sourceButton:Clone()
-    clonedButton.Parent = sourceButton.Parent
-    clonedButton.Name = cloneName
-    clonedButton.Position = sourceButton.Position - UDim2.new(0.731, 0, 0, 0)
-
-    local textLabel = clonedButton:FindFirstChild("TextLabel")
-    if textLabel and textLabel:IsA("TextLabel") then
-        textLabel.Text = labelText
-    end
-
-    return clonedButton
-end
-
 Section:NewDropdown("Characters", dataname, function(currentOption)
     game:GetService("ReplicatedStorage"):WaitForChild("MorphRequest"):FireServer(currentOption)
 end)
@@ -812,6 +755,13 @@ end)
 Section:NewDropdown("Change Skill", Mydata, function(currentOption)
     firesignal(game:GetService("Players").LocalPlayer.PlayerGui.Tranformar.Characters[currentOption].Transform.MouseButton1Click)
 end)
+
+Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
+    for key, v in pairs(selectedOptions) do
+        print(i,v)
+    end
+end)
+
 
 -- Section:NewButton("Button", function()
     
@@ -823,50 +773,6 @@ Section:NewToggle("Toggle", false, function(state)
         if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
             game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ"):Destroy()
         end 
-    end
-end)
-
-Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
-    playerGui.Botoes.Direita.Visible = false
-
-    destroyCopiedPowerButtons()
-
-    local primaryCharacter = selectedOptions[1]
-    local secondaryCharacter = selectedOptions[2]
-
-    if not secondaryCharacter and primaryCharacter then
-        fireTransformButton(primaryCharacter)
-    end
-
-    if primaryCharacter and secondaryCharacter and fireTransformButton(primaryCharacter) then
-        task.wait()
-        clonePowerButton({ "TrolarBotão", "TrolarBotao", "TrolarBotรฃo" }, "2_1", secondaryCharacter)
-        clonePowerButton("TrolarBotao2", "2_2", primaryCharacter .. " 2")
-
-        local copiedButtonOne = powersFrame:FindFirstChild("2_1")
-        if copiedButtonOne then
-            local firstTextLabel = copiedButtonOne:FindFirstChild("TextLabel")
-            if firstTextLabel and firstTextLabel:IsA("TextLabel") then
-                local sourceButtonOne = powersFrame:FindFirstChild("TrolarBotao") or powersFrame:FindFirstChild("TrolarBotรฃo") or powersFrame:FindFirstChild("TrolarBotão")
-                if sourceButtonOne and sourceButtonOne:FindFirstChild("TextLabel") then
-                    firstTextLabel.Text = sourceButtonOne.TextLabel.Text
-                end
-            end
-        end
-
-        local copiedButtonTwo = powersFrame:FindFirstChild("2_2")
-        if copiedButtonTwo then
-            local secondTextLabel = copiedButtonTwo:FindFirstChild("TextLabel")
-            if secondTextLabel and secondTextLabel:IsA("TextLabel") then
-                local sourceButtonTwo = powersFrame:FindFirstChild("TrolarBotao2")
-                if sourceButtonTwo and sourceButtonTwo:FindFirstChild("TextLabel") then
-                    secondTextLabel.Text = sourceButtonTwo.TextLabel.Text
-                end
-            end
-        end
-
-        task.wait()
-        fireTransformButton(secondaryCharacter)
     end
 end)
 
