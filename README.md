@@ -1035,6 +1035,10 @@ pcall(function()
             Noclip.MaxForce = Vector3.new(100000,100000,100000)
             Noclip.Velocity = Vector3.new(0,0,0)
         end
+    else
+        if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
+        game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ"):Destroy()
+        end
     end
 end)
 end
