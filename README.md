@@ -914,8 +914,8 @@ Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
     end
 end, function ()
     for i,v in pairs (game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:GetChildren()) do
-        if string.find(child.Name,"_") then
-            child:Destroy()
+        if string.find(v.Name,"_") then
+            v:Destroy()
         end
     end
 end)
