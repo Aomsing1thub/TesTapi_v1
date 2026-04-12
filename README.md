@@ -815,7 +815,7 @@ Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
             cloned = target:Clone()
             cloned.Parent = target.Parent
             cloned.Name = "3_1"
-            cloned.Position = target.Position - UDim2.new(0.731, 0, 0, 0)
+            cloned.Position = target.Position - UDim2.new(0, 0, 0.95, 0)
             cloned.TextLabel.Name = selectedOptions[#selectedOptions - 1]
         end
 
@@ -825,7 +825,7 @@ Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
             cloned = target2:Clone()
             cloned.Parent = target2.Parent
             cloned.Name = "3_2"
-            cloned.Position = target2.Position - UDim2.new(0.731, 0, 0, 0)
+            cloned.Position = target2.Position - UDim2.new(0, 0, 0.95, 0)
             cloned.TextLabel.Name = selectedOptions[#selectedOptions - 1]
         end
         firesignal(game:GetService("Players").LocalPlayer.PlayerGui.Tranformar.Characters[selectedOptions[#selectedOptions]].Transform.MouseButton1Click)
@@ -836,7 +836,7 @@ Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
             cloned = target:Clone()
             cloned.Parent = target.Parent
             cloned.Name = "4_1"
-            cloned.Position = target.Position - UDim2.new(0.731, 0, 0, 0)
+            cloned.Position = target.Position - UDim2.new(0.731, 0, 0.95, 0)
             cloned.TextLabel.Name = selectedOptions[#selectedOptions - 1]
         end
 
@@ -846,7 +846,7 @@ Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
             cloned = target2:Clone()
             cloned.Parent = target2.Parent
             cloned.Name = "4_2"
-            cloned.Position = target2.Position - UDim2.new(0.731, 0, 0, 0)
+            cloned.Position = target2.Position - UDim2.new(0.731, 0, 0.95, 0)
             cloned.TextLabel.Name = selectedOptions[#selectedOptions - 1]
         end
         firesignal(game:GetService("Players").LocalPlayer.PlayerGui.Tranformar.Characters[selectedOptions[#selectedOptions]].Transform.MouseButton1Click)
