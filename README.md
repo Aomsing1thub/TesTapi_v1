@@ -758,12 +758,14 @@ end)
 
 game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes.ChildAdded:Connect(function(child)
     if string.find(child.Name,"_") then
-        for key, v in pairs(child) do
-            if v:IsA("ImageButton") then
-                yes = v
+        child.MouseButton1Click:Connect(function()
+            for key, v in pairs(child:GetChildren()) do
+                if v:IsA("TextLabel") then
+                    print("Work",v)
+                    -- game:GetService("ReplicatedStorage"):WaitForChild("SkillEvent"):FireServer(v.Name)
+                end
             end
-        end
-        game:GetService("ReplicatedStorage"):WaitForChild("SkillEvent"):FireServer(yes.Name)
+        end)
     end
 end)
 
