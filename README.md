@@ -742,7 +742,7 @@ end
 
 for key, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Tranformar.TrocarPersonagem.ScrollingFrame:GetChildren()) do
     if v:IsA("ImageButton") then
-        if v.Visible then
+        if v.Visible and v.Name ~= "RockLee" then
             table.insert(Mydata,v.Name)
         end
     end
