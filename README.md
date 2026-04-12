@@ -999,7 +999,7 @@ task.spawn(function()
 while wait() do
 if a1 then
 pcall(function()
-    if game.Players.LocalPlayer.Character.Humanoid.FloorMaterial ~= Enum.Material.Air and game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y > 30 and not stop then
+    if game.Players.LocalPlayer.Character.Humanoid.FloorMaterial ~= Enum.Material.Air and game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y > 30 then
         Save = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
         wait(.5)
         if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
@@ -1016,16 +1016,7 @@ while task.wait() do
 if a1 then
 pcall(function()
     if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y <= 25 then
-        stop = true
         MoveVerticalThenHorizontal(Save)
-        if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
-            local Noclip = Instance.new("BodyVelocity")
-            Noclip.Name = "GGEZ"
-            Noclip.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
-            Noclip.MaxForce = Vector3.new(100000,100000,100000)
-            Noclip.Velocity = Vector3.new(0,0,0)
-        end
-        stop = false
     end
 end)
 end
