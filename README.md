@@ -986,7 +986,7 @@ end)
     
 -- end)
 
-Section:NewToggle("Toggle", false, function(state)
+Section:NewToggle("Anti Fall", false, function(state)
     a1 = state
     if not a1 then
         if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
@@ -1001,10 +1001,7 @@ if a1 then
 pcall(function()
     if game.Players.LocalPlayer.Character.Humanoid.FloorMaterial ~= Enum.Material.Air and game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y > 30 then
         Save = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-        wait(.5)
-        if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
-            game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ"):Destroy()
-        end 
+        wait(2)
     end
 end)
 end
