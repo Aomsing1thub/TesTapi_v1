@@ -1001,7 +1001,6 @@ if a1 then
 pcall(function()
     if game.Players.LocalPlayer.Character.Humanoid.FloorMaterial ~= Enum.Material.Air and game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y > 30 then
         Save = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
-        wait(2)
     end
 end)
 end
