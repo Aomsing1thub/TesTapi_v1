@@ -953,7 +953,7 @@ task.spawn(function()
 while task.wait() do
 if a1 then
 pcall(function()
-    if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y <= 28 then
+    if game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y <= 25 then
         stop = true
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Save
         if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("GGEZ") then
