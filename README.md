@@ -804,8 +804,8 @@ Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
             cloned.TextLabel.Name = selectedOptions[#selectedOptions - 1]
         end
 
-        target2 = game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("TrolarBotao2")
-        print(target2)
+        target2 = game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("TrolarBotao2") or game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("TrolarBotão2")
+        
         if target2 then
             cloned = target2:Clone()
             cloned.Parent = target2.Parent
@@ -848,7 +848,7 @@ Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
             print("clone 3_1")
         end
 
-        target2 = game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("TrolarBotao2")
+        target2 = game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("TrolarBotao2") or game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("TrolarBotão2")
         print(target2)
         if target2 then
             cloned = target2:Clone()
@@ -872,7 +872,7 @@ Section:NewMultiDropdown("Characters Multi", Mydata, function(selectedOptions)
             print("clone 4_1")
         end
 
-        target2 = game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("TrolarBotao2")
+        target2 = game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("TrolarBotao2") or game:GetService("Players").LocalPlayer.PlayerGui.Botoes.Poderes:FindFirstChild("TrolarBotão2")
         
         print(target2)
         if target2 then
